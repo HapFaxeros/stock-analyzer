@@ -1,0 +1,31 @@
+/* Světlé téma */
+.theme-light {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --border-color: #dee2e6;
+}
+
+/* Tmavé téma */
+.theme-dark {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --border-color: #404040;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.card {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+.navbar {
+    background-color: var(--bg-secondary);
+} 

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <div class="container">
+        <h1>Inteligentní Analýza Akcií</h1>
+        <p class="lead">Objevte nejlepší investiční příležitosti s pomocí umělé inteligence</p>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h2>Doporučené Akcie</h2>
+    <div class="row">
+        {% for stock in recommendations %}
+        <div class="col-md-4 mb-4">
+            <div class="card stock-card">
+                <div class="card-body">
+                    <h3 class="card-title">{{ stock.company_name }}</h3>
+                    <div class="price-info">
+                        <p class="current-price">${{ stock.current_price }}</p>
+                        <p class="target-price">Cílová cena: ${{ stock.target_price }}</p>
+                    </div>
+                    <div class="confidence-meter" style="--confidence: {{ stock.confidence }}%">
+                        <div class="confidence-label">Důvěra: {{ stock.confidence }}%</div>
+                    </div>
+                    <p class="estimated-time">Očekávaná doba: {{ stock.estimated_days }} dní</p>
+                    <a href="{{ url_for('stock_detail', symbol=stock.symbol) }}" class="btn btn-primary">Zobrazit Analýzu</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 
